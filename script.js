@@ -112,12 +112,14 @@ work.addEventListener("mouseleave", autoPlay);
 
 // ----------------------form-----------------------
 
-
 document.getElementById('showFormBtn').addEventListener('click', function () {
     const formContainer = document.getElementById('contactFormContainer');
     formContainer.style.display = 'block';
-    formContainer.style.transition = 'opacity 0.8s';
-    formContainer.style.opacity = 1;
+    
+    setTimeout(() => {
+        formContainer.style.opacity = 1;
+        formContainer.style.transform = 'translate(-50%, -50%) scale(1)';
+    }, 0);
 
     document.getElementById('header').style.opacity = 0.5;
     document.getElementById('header').style.filter = 'blur(5px)';
@@ -143,9 +145,15 @@ document.getElementById('contactForm').addEventListener('submit', function (even
                 form.reset();
 
                 const formContainer = document.getElementById('contactFormContainer');
-                formContainer.style.display = 'none';
+                
+                formContainer.style.opacity = 0;
+                formContainer.style.transform = 'translate(-50%, -50%) scale(0)';
+                setTimeout(() => {
+                    formContainer.style.display = 'none';
+                }, 800);
 
                 document.getElementById('header').style.opacity = 1;
+                document.getElementById('header').style.filter = 'none';
                 document.body.classList.remove('no-scroll');
             } else {
                 alert('Form submission failed. Please try again.');
