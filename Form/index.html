@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="showFormBtn">Show Form</button>
+
+    <div id="contactFormContainer" class="hidden">
+        <form id="contactForm">
+            <h2>Talk to us</h2>
+            <label for="workEmail">Work email*</label>
+            <input type="email" id="workEmail" name="workEmail" required>
+
+            <label for="firstName">First name*</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last name*</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
+                <label for="termsCheckbox">I agree to Fyle's terms and conditions, and provide consent to send me communication.</label>
+            </div>
+
+            <button type="submit">Contact Us</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

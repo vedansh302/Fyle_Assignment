@@ -1,0 +1,22 @@
+.mar-1{
+    margin-top: 40px;
+}
+
+.mar-2{
+    margin-top: 25px;
+}
+
+.red{
+    background: #ff3147;
+    color: #ffffff;
+}
+
+.grey{
+    background: #f4f4f4;
+    color: black;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
