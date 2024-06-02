@@ -120,6 +120,7 @@ document.getElementById('showFormBtn').addEventListener('click', function () {
     formContainer.style.opacity = 1;
 
     document.getElementById('header').style.opacity = 0.5;
+    document.getElementById('header').style.filter = 'blur(5px)';
     document.body.classList.add('no-scroll');
 });
 
