@@ -589,3 +589,21 @@
     text-align: center;
     padding: 130px 0;
 }
+
+
+@media screen and (max-width: 1768px) {
+
+    .container {
+        padding: 0 170px; 
+    }
+    .home-col-2 img{
+        width: 100%;
+    }
+    #header{
+        padding: 50px 0;
+    }
+    .work{
+        margin: 0 auto;
+    }
+}
+    
