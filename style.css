@@ -412,13 +412,34 @@
     margin-top: 25px;
 }
 
-.about-col{
+
+.about-col-1,
+.about-col-2,
+.about-col-3,
+.about-col-4{
     flex-basis: 25%;
 }
 
-.about-col img{
-    width: 70px;
+.about-col-1 img{
+    width: 72px;
+    height: 83.72px;
 }
+.about-col-2 img{
+    width: 70.01px;
+    height: 81.87px;
+}
+.about-col-3 img{
+    width: 68px;
+    height: 79.9px;
+}
+.about-col-4 img{
+    width: 69.73px;
+    height: 78.72px;
+}
+
+
+
+
 
 .about-col h3{
     margin-top: 20px;
