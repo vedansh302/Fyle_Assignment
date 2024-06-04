@@ -83,6 +83,15 @@
 }
 
 
+#closeFormBtn {
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 270px;
+  
+}
+
+
+
 #contactFormContainer {
     display: none;
     position: fixed;

@@ -112,6 +112,7 @@ work.addEventListener("mouseleave", autoPlay);
 
 // ----------------------form-----------------------
 
+
 document.addEventListener('DOMContentLoaded', function () {
     const formGroups = document.querySelectorAll('.form-group');
 
@@ -122,8 +123,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const inputValue = this.value.trim();
             const label = formGroup.querySelector('label');
 
-            // console.log('Input value:', inputValue);
-            // console.log('Label:', label);
+            console.log('Input value:', inputValue);
+            console.log('Label:', label);
 
             if (inputValue !== '') {
                 label.classList.add('filled');
@@ -134,61 +135,74 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Rest of your JavaScript code...
-});
 
-
-document.getElementById('showFormBtn').addEventListener('click', function () {
+    const closeFormBtn = document.getElementById('closeFormBtn');
     const formContainer = document.getElementById('contactFormContainer');
-    formContainer.style.display = 'block';
-    // Trigger the transition by updating opacity and scale
-    setTimeout(() => {
-        formContainer.style.opacity = 1;
-        formContainer.style.transform = 'translate(-50%, -50%) scale(1)';
-    }, 0);
+    const header = document.getElementById('header');
 
-    document.getElementById('header').style.opacity = 0.5;
-    document.getElementById('header').style.filter = 'blur(5px)';
-    document.body.classList.add('no-scroll');
-});
+    closeFormBtn.addEventListener('click', function () {
+        formContainer.style.opacity = 0;
+        formContainer.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        setTimeout(() => {
+            formContainer.style.display = 'none';
+        }, 800);
 
-document.getElementById('contactForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+        header.style.opacity = 1;
+        header.style.filter = 'none';
+        document.body.classList.remove('no-scroll');
+    });
 
-    const form = event.target;
-    const formData = new FormData(form);
+    document.getElementById('showFormBtn').addEventListener('click', function () {
+        formContainer.style.display = 'block';
+        // Trigger the transition by updating opacity and scale
+        setTimeout(() => {
+            formContainer.style.opacity = 1;
+            formContainer.style.transform = 'translate(-50%, -50%) scale(1)';
+        }, 0);
 
-    fetch("https://getform.io/f/qalodrmb", {
-        method: "POST",
-        body: formData,
-        headers: {
-            "Accept": "application/json",
-        },
-    })
-        .then(response => {
-            if (response.ok) {
-                alert('Form submitted successfully!');
-                form.reset();
+        header.style.opacity = 0.5;
+        header.style.filter = 'blur(5px)';
+        document.body.classList.add('no-scroll');
+    });
 
-                const formContainer = document.getElementById('contactFormContainer');
-                // Trigger the reverse transition
-                formContainer.style.opacity = 0;
-                formContainer.style.transform = 'translate(-50%, -50%) scale(0)';
-                setTimeout(() => {
-                    formContainer.style.display = 'none';
-                }, 800);
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault();
 
-                document.getElementById('header').style.opacity = 1;
-                document.getElementById('header').style.filter = 'none';
-                document.body.classList.remove('no-scroll');
-            } else {
-                alert('Form submission failed. Please try again.');
-            }
+        const form = event.target;
+        const formData = new FormData(form);
+
+        fetch("https://getform.io/f/qalodrmb", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json",
+            },
         })
-        .catch(error => {
-            console.error('Form submission error:', error);
-            alert('An error occurred. Please try again.');
-        });
+            .then(response => {
+                if (response.ok) {
+                    alert('Form submitted successfully!');
+                    form.reset();
+
+                    formContainer.style.opacity = 0;
+                    formContainer.style.transform = 'translate(-50%, -50%) scale(0)';
+                    setTimeout(() => {
+                        formContainer.style.display = 'none';
+                    }, 800);
+
+                    header.style.opacity = 1;
+                    header.style.filter = 'none';
+                    document.body.classList.remove('no-scroll');
+                } else {
+                    alert('Form submission failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Form submission error:', error);
+                alert('An error occurred. Please try again.');
+            });
+    });
 });
+
 
 
 function changeImage(imagePath) {
