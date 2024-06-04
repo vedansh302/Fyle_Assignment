@@ -7,6 +7,7 @@
     <title>Digital Marketing Agency</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utility.css">
+    <link rel="icon" type="image/x-icon" href="Assets/icons/heart (2).svg" />
 </head>
 
 <body>
@@ -33,30 +34,36 @@
     <div id="contactFormContainer" class="hidden">
         <form action="https://getform.io/f/qalodrmb" method="POST" id="contactForm">
             <h2>Talk to us</h2>
-
-            <label for="workEmail"></label>
-            <input type="email" id="workEmail" name="workEmail" placeholder="Work email*" required>
-
-            <label for="firstName"></label>
-            <div class="flex mar-2">
-                <input type="text" id="firstName" name="firstName" placeholder="First name*" required>
-
-                <label for="lastName"></label>
-                <input type="text" id="lastName" name="lastName" placeholder="Last name*" required>
+            <div class="form-container">
+                <div class="form-group">
+                    <input type="email" id="workEmail" name="workEmail" required>
+                    <label for="workEmail">Work email*</label>
+                </div>
+    
+                <div class="flex mar-2">
+                    <div class="form-group">
+                        <input type="text" id="firstName" name="firstName" required>
+                        <label for="firstName">First name*</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="lastName" name="lastName" required>
+                        <label for="lastName">Last name*</label>
+                    </div>
+                </div>
+    
             </div>
-
             <div class="checkbox-container mar-2 flex">
                 <input class="col-1" type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
-                <label class="col-2" for="termsCheckbox">I agree to Fyle's terms and conditions, and provide consent to
-                    send me communication.</label>
+                <label class="col-2" for="termsCheckbox">I agree to Fyle's terms and conditions, and provide consent to send me communication.</label>
             </div>
-
+    
             <!-- Hidden honeypot field -->
             <input type="hidden" name="_gotcha" style="display:none !important">
-
+    
             <button type="submit">Contact Us</button>
         </form>
     </div>
+    
 
     <!-- --------------------portfolio------------------- -->
     <div id="portfolio">

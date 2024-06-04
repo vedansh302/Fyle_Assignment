@@ -112,10 +112,35 @@ work.addEventListener("mouseleave", autoPlay);
 
 // ----------------------form-----------------------
 
+document.addEventListener('DOMContentLoaded', function () {
+    const formGroups = document.querySelectorAll('.form-group');
+
+    formGroups.forEach(formGroup => {
+        const input = formGroup.querySelector('input');
+
+        input.addEventListener('blur', function () {
+            const inputValue = this.value.trim();
+            const label = formGroup.querySelector('label');
+
+            // console.log('Input value:', inputValue);
+            // console.log('Label:', label);
+
+            if (inputValue !== '') {
+                label.classList.add('filled');
+            } else {
+                label.classList.remove('filled');
+            }
+        });
+    });
+
+    // Rest of your JavaScript code...
+});
+
+
 document.getElementById('showFormBtn').addEventListener('click', function () {
     const formContainer = document.getElementById('contactFormContainer');
     formContainer.style.display = 'block';
-    
+    // Trigger the transition by updating opacity and scale
     setTimeout(() => {
         formContainer.style.opacity = 1;
         formContainer.style.transform = 'translate(-50%, -50%) scale(1)';
@@ -145,7 +170,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
                 form.reset();
 
                 const formContainer = document.getElementById('contactFormContainer');
-                
+                // Trigger the reverse transition
                 formContainer.style.opacity = 0;
                 formContainer.style.transform = 'translate(-50%, -50%) scale(0)';
                 setTimeout(() => {
@@ -164,6 +189,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
             alert('An error occurred. Please try again.');
         });
 });
+
 
 function changeImage(imagePath) {
     document.getElementById('mainImage').src = imagePath;
